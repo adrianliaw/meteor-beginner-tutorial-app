@@ -1,0 +1,24 @@
+<head>
+  <title>im</title>
+</head>
+
+<body>
+  <h1>Meteor Messages</h1>
+
+  {{> loginButtons}}
+  {{> Board}}
+  {{> NewMessage}}
+</body>
+
+<template name="Board">
+  {{#each message in messages}}
+  <p>{{userDisplayName message.authorId}} said: {{message.text}}</p>
+  {{/each}}
+</template>
+
+<template name="NewMessage">
+  <form id="new-message">
+    <input type="text" id="message-text" />
+    <input type="submit">
+  </form>
+</template>
