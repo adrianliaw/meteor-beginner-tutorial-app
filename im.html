@@ -2,23 +2,36 @@
   <title>im</title>
 </head>
 
-<body>
-  <h1>Meteor Messages</h1>
 
+<template name="layout">
+  <h1><a href="/">Meteorite Talk</a></h1>
   {{> loginButtons}}
-  {{> Board}}
-  {{> NewMessage}}
-</body>
+  {{> Template.dynamic template=body}}
+</template>
 
-<template name="Board">
+<template name="RoomList">
+  <h2>Rooms:</h2>
+
+  {{#each room in rooms}}
+  <h3><a href="/room/{{room._id}}">{{room.name}}</a></h3>
+  {{/each}}
+
+  <form id="new-room">
+    <span>Create a new room:</span>
+    <input type="text" id="room-name" />
+    <input type="submit">
+  </form>
+</template>
+
+<template name="Room">
+  <h2>{{room.name}}</h2>
+
   {{#each message in messages}}
   <p>{{userDisplayName message.authorId}} said: {{message.text}}</p>
   {{/each}}
-</template>
 
-<template name="NewMessage">
   <form id="new-message">
     <input type="text" id="message-text" />
-    <input type="submit">
+    <input type="submit" value="Create">
   </form>
 </template>
