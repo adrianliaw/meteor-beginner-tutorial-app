@@ -11,8 +11,8 @@
 </body>
 
 <template name="Board">
-    {{#each message in messages}}
-    <p>{{userDisplayName message.authorId}} said: {{message.text}}</p>
+    {{#each messages}}
+        <p><a class="delete" href="#">[Del]</a> {{userDisplayName authorId}} said: {{text}} </p>
     {{/each}}
 </template>
 

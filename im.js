@@ -12,6 +12,12 @@ if (Meteor.isClient) {
         },
     });
 
+    Template.Board.events({
+        'click .delete': function(event, template) {
+            Messages.remove({_id: this._id});
+        },
+    });
+
     Template.NewMessage.events({
         'submit #new-message': function(event, template) {
             event.preventDefault();
