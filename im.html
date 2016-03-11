@@ -1,24 +1,24 @@
 <head>
-  <title>im</title>
+    <title>im</title>
 </head>
 
 <body>
-  <h1>Meteor Messages</h1>
+    <h1>Meteor Messages</h1>
 
-  {{> loginButtons}}
-  {{> Board}}
-  {{> NewMessage}}
+    {{> loginButtons}}
+    {{> Board}}
+    {{> NewMessage}}
 </body>
 
 <template name="Board">
-  {{#each message in messages}}
-  <p>{{userDisplayName message.authorId}} said: {{message.text}}</p>
-  {{/each}}
+    {{#each message in messages}}
+    <p>{{userDisplayName message.authorId}} said: {{message.text}}</p>
+    {{/each}}
 </template>
 
 <template name="NewMessage">
-  <form id="new-message">
-    <input type="text" id="message-text" />
-    <input type="submit">
-  </form>
+    <form id="new-message">
+        <input type="text" id="message-text" />
+        <input type="submit">
+    </form>
 </template>
